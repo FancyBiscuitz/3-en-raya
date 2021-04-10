@@ -1,0 +1,8 @@
+void Colocar1(char** matriz, int posicion, char opcion)
+{
+    //Calcular la posicion [i][j] en la matriz m
+    int index_i = int(ceil(float(posicion)/3)) - 1;
+    int index_j = posicion - (index_i*3 + 1);
+    //Cambiar el valor del elemento
+    matriz[index_i][index_j] = opcion;
+}
