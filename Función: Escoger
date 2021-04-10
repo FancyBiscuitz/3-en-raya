@@ -1,0 +1,32 @@
+char Escoger()
+{
+    char res;
+    //Se repite hasta que el usuario ingrese una opcion valida
+    while(true)
+    {  
+        //Recibir input del usuario
+        std::cout << "Escoga X o O: " << std::endl << "1: X" << std::endl << "2: O" << std::endl << ">";
+        std::cin >> res;
+        //Revisar si el input del usuario es valido
+        if (res == '1' || res == '2')
+        {
+            std::cout << "se escogio: ";
+            //Devolver la opcion escogida  
+            if (res == '1')
+            {
+                std::cout << "X" << std::endl;
+                return 'X'; 
+            }
+            else
+            {
+                std::cout << "O" << std::endl;
+                return 'O';
+            }
+        }
+        //Caso de que el input no sea valido
+        else
+        {
+            std::cout << "Ingrese una opcion valida" << std::endl;
+        }
+    }  
+}
