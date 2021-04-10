@@ -3,7 +3,7 @@
 #include <math.h>
 
 void Imprimir_tablero(char** matriz, int size);
-void Colocar1(char** matriz, int posicion, char opcion);
+void Colocar2(char** matriz, int matriz_size);
 char** Definir_e_inicializar_matriz(int size);
 char Escoger();
 
@@ -12,21 +12,11 @@ int main(void)
     char** matrix;
     //Crear la matriz 
     matrix = Definir_e_inicializar_matriz(3);
-    //Determinar la opcion ("X" o "O")
-    char opcion = Escoger();
     //Mostrar tablero original
     Imprimir_tablero(matrix, 3);
-    //Solicitar la posicion a cambiar
     std::cout << std::endl;
-    int pocision;
-    do
-    {
-        std::cout << "Posicion a cambiar (1-9): " << std::endl << ">";
-        std::cin >> pocision;
-    }
-    while (pocision <= 0 || pocision > 9);
     //Modificar la matriz
-    Colocar1(matrix, pocision, opcion);
+    Colocar2(matrix, 3);
     //Imprimir matriz modificada
     Imprimir_tablero(matrix, 3);
 }
@@ -69,11 +59,21 @@ void Imprimir_tablero(char** matriz, int size)
     }
 }
 
-void Colocar1(char** matriz, int posicion, char opcion)
+void Colocar2(char** matriz, int matriz_size)
 {
+    //Determinar la opcion del usuario con la funcion Escoger()
+    char opcion = Escoger();
+    int index;
+    //Bucle para recibir una posicion valida por el usuario
+    do
+    {
+        std::cout << "Ingrese posicion a cambiar (1-9): ";
+        std::cin >> index;
+    }
+    while (index <= 0 || index > 9);
     //Calcular la posicion [i][j] en la matriz m
-    int index_i = int(ceil(float(posicion)/3)) - 1;
-    int index_j = posicion - (index_i*3 + 1);
+    int index_i = int(ceil(float(index)/matriz_size)) - 1;
+    int index_j = index - (index_i*matriz_size + 1);
     //Cambiar el valor del elemento
     matriz[index_i][index_j] = opcion;
 }
