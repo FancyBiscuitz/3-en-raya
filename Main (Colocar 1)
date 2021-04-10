@@ -2,9 +2,33 @@
 #include <string>
 #include <math.h>
 
+void Imprimir_tablero(char** matriz, int size);
+void Colocar1(char** matriz, int posicion, char opcion);
+char** Definir_e_inicializar_matriz(int size);
+char Escoger();
+
 int main(void)
 {
-
+    char** matrix;
+    //Crear la matriz 
+    matrix = Definir_e_inicializar_matriz(3);
+    //Determinar la opcion ("X" o "O")
+    char opcion = Escoger();
+    //Mostrar tablero original
+    Imprimir_tablero(matrix, 3);
+    //Solicitar la posicion a cambiar
+    std::cout << std::endl;
+    int pocision;
+    do
+    {
+        std::cout << "Posicion a cambiar (1-9): " << std::endl << ">";
+        std::cin >> pocision;
+    }
+    while (pocision <= 0 || pocision > 9);
+    //Modificar la matriz
+    Colocar1(matrix, pocision, opcion);
+    //Imprimir matriz modificada
+    Imprimir_tablero(matrix, 3);
 }
 
 void Imprimir_tablero(char** matriz, int size)
