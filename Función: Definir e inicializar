@@ -1,0 +1,19 @@
+char** Definir_e_inicializar_matriz(int size)
+{
+    int sup = 1;
+    //Doble puntero m apunta a una nueva lista de punteros de size n
+    char** m = new char*[size];
+    //Crear matriz y dar valor a los elementos
+    for (int i = 0; i < size; i++)
+    {
+        //Cada elemento de m apunta a una nueva lista de chars de size n para crear la matriz
+        m[i] = new char[size];
+        //Dar valor a cada elemento de la matriz
+        for (int j = 0; j < size; j++)
+        {
+            m[i][j] = sup + '0';
+            sup++;
+        }
+    }
+    return m;
+}
