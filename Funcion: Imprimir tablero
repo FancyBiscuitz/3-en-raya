@@ -1,0 +1,37 @@
+void Imprimir_tablero(char** matriz, int size)
+{
+    //Variable papra imprimir las lineas horizontales del tablero
+    std::string sup;
+    //Definir longitud de las lineas horizontales
+    for (int c = 0; c < (3*size)+(size - 1); c++)
+    {
+        sup += "-";
+    }
+    //Imprimir valores y separaciones
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            //Imprimir valor 
+            std::cout << " " << matriz[i][j] << " ";
+            //Imprimir separacion a la derecha hasta en penultimo elemento
+            if (j == size - 1)
+            {
+                break;
+            }
+            else
+            {
+                std::cout << "|";
+            }
+        }
+        //Imprimir linea horizontal (sup) hasta el penultimo elemento
+        if (i == size -1)
+        {
+            break;
+        }
+        else 
+        {
+            std::cout << std::endl << sup << std::endl;
+        }
+    }
+}
