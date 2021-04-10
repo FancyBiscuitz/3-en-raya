@@ -35,3 +35,4 @@ void Imprimir_tablero(char** matriz, int size)
         }
     }
 }
+ 
