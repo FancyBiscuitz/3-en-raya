@@ -1,11 +1,18 @@
 void Colocar2(char** matriz, int matriz_size)
 {
-    char in = Escoger();
+    //Determinar la opcion del usuario con la funcion Escoger()
+    char opcion = Escoger();
     int index;
-    std::cout << "Ingrese indice a cambiar (1-9): ";
-    std::cin >> index;
-    std::cout << std::endl;
+    //Bucle para recibir una posicion valida por el usuario
+    do
+    {
+        std::cout << "Ingrese posicion a cambiar (1-9): ";
+        std::cin >> index;
+    }
+    while (index <= 0 || index > 9);
+    //Calcular la posicion [i][j] en la matriz m
     int index_i = int(ceil(float(index)/matriz_size)) - 1;
     int index_j = index - (index_i*matriz_size + 1);
-    matriz[index_i][index_j] = in;
+    //Cambiar el valor del elemento
+    matriz[index_i][index_j] = opcion;
 }
