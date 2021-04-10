@@ -1,0 +1,11 @@
+void Colocar2(char** matriz, int matriz_size)
+{
+    char in = Escoger();
+    int index;
+    std::cout << "Ingrese indice a cambiar (1-9): ";
+    std::cin >> index;
+    std::cout << std::endl;
+    int index_i = int(ceil(float(index)/matriz_size)) - 1;
+    int index_j = index - (index_i*matriz_size + 1);
+    matriz[index_i][index_j] = in;
+}
